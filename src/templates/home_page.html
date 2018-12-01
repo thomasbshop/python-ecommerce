@@ -1,3 +1,4 @@
+{% load static %}
 <!doctype html>
 <html lang="en">
   <head>
@@ -8,6 +9,8 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
+    <link rel="stylesheet" type="text/css" href='{% static "css/main.css" %}'>
+
     <title>Hello, world!</title>
   </head>
   <body>
@@ -17,9 +20,20 @@
     <div class="container">
       <div class="row">
         <div class="col">
-          <p>{{}}</p>
+          <img src="{% static 'img/golgi.jpg' %}" class='img_fluid' />
+          <p>{{ content }}</p>
         </div>
       </div>
+    
+      {% if request.user.is_authenticated %}
+      <div class="row">
+        <div class="col">
+          <h3>Premium</h3>
+          <p>{{ premium_content }}</p>
+        </div>
+      </div>
+      {% endif %}
+
     </div>
 
     <!-- Optional JavaScript -->
