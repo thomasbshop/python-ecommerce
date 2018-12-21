@@ -19,6 +19,7 @@ from django.conf.urls.static import static
 
 from django.conf.urls import url, include
 from django.contrib import admin
+from django.views.generic import TemplateView
 
 # own
 
@@ -40,6 +41,7 @@ urlpatterns = [
     url(r'^login/$', login_page, name='login'),
 	url(r'^contact/$', contact_page, name='contact'),
     url(r'^products/', include("products.urls", namespace="products")),
+    url(r'^bootstrap/$', TemplateView.as_view(template_name='bootstrap/example.html')),
     # url(r'^products/$', ProductListView.as_view()),
     # url(r'^products-fbv/$', product_list_view),
     # # url(r'^products/(?P<pk>\d+)/$', ProductDetailView.as_view()),
