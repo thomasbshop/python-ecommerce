@@ -52,6 +52,7 @@ celerybeat-schedule
 .env
 .venv
 env/
+env-3.5/
 venv/
 ENV/
 env.bak/
@@ -62,3 +63,4 @@ venv.bak/
 /site
 .mypy_cache/
 .idea
+db.sqlite3
