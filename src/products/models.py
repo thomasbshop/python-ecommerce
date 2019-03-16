@@ -62,6 +62,7 @@ class Product(models.Model):
 	objects = ProductManager()
 
 	def get_absolute_url(self):  #  django convention
+		"""Returns the url to access a particular instance of the model."""
 		# return "/products/{slug}/".format(slug=self.slug)
 		return reverse("products:detail", kwargs={"slug":self.slug})
 
