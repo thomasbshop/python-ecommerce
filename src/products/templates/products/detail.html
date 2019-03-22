@@ -5,16 +5,24 @@
 {% block content %}
 <div class="container">
 	<div class="row">
-	<div class="column">
-	<h1>{{object.title}}</h1><br>
-	<h4>{{object.timestamp | timesince}} ago</h4>
-	{% localtime on %} <h5>{{object.timestamp | date:"r"}}</h5> {% endlocaltime %}
-	{{object.description | linebreaks}}<br>
-	{{object.image.url}}<br>
-	{% if object.image %}
-		<img src="{{object.image.url}}" alt="{{object.title}}" class="image-fluid" />
-	{% endif %}
+		<div class="col-12 col-md-6">
+			<h1>{{object.title}}</h1><br>
+			<h4>{{object.timestamp | timesince}} ago</h4>
+			{% localtime on %} <h5>{{object.timestamp | date:"r"}}</h5> {% endlocaltime %}
+			{{object.description | linebreaks}}<br>
+			{{object.image.url}}<br>
+			{% if object.image %}
+				<img src="{{object.image.url}}" alt="{{object.title}}" class="image-fluid" />
+			{% endif %}
+		</div>
+		<div class="col-12 col-md-6">
+			{{ cart }}
+			{% if object in cart.products.all %}
+			<button class="btn btn-link">Remove?</button>
+			{% else %}
+			<button class="btn btn-primary">Add to cart</button>
+			{% endif %}
+		</div>
 	</div>
-</div>
 </div>
 {% endblock %}
