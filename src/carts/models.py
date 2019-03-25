@@ -59,6 +59,7 @@ m2m_changed.connect(m2m_changed_cart_reciver, sender=Cart.products.through)
 
 
 def pre_save_cart_reciver(sender, instance, *args, **kwargs):
+    '''docstring'''
     if instance.subtotal > 0:
         instance.total = instance.subtotal + 10
     else:
