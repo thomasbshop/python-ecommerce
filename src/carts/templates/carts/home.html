@@ -11,14 +11,16 @@
 	      <th scope="col">#</th>
 	      <th scope="col">Product Name</th>
 	      <th scope="col">Product Price</th>
+	      <th scope="col"></th>
 	    </tr>
 	  </thead>
 	  <tbody>
 	  	{% for product in cart.products.all %}
 	    <tr>
-	      <th scope="row">{{forloop.counter}}</th>
-	      <td><a href="{{product.get_absolute_url}}">{{product.title}}</a></td>
-	      <td>{{product.price}}</td>
+	      <th scope="row">{{ forloop.counter }}</th>
+	      <td><a href="{{product.get_absolute_url}}">{{ product.title }}</a></td>
+	      <td>{{ product.price }}</td>
+	      <td>{% include 'products/snippets/update-cart.html' with product=product cart=cart in_cart=True %}</td>
 	    </tr>
 	    {% endfor %}
 	    <tr>
