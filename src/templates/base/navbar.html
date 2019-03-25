@@ -4,6 +4,7 @@
 {% url 'register' as register_url %}
 {% url 'about' as about_url %}
 {% url 'login' as login_url %}
+{% url 'cart:home' as cart_url %}
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-3">
   <a class="navbar-brand" href="{{ home_url }}">
@@ -54,6 +55,9 @@
 
     </ul>
      {% include 'search/snippets/search-form.html' %} 
+     <li class="nav-item pull-right {% if request.path == cart_url %} active {% endif %} ">
+        <a class="nav-link" href="{{ cart_url }}"> {{ request.session.cart_count }} <i class="fas fa-shopping-cart"></i></a>
+      </li>
   </div>
 </nav>
 
