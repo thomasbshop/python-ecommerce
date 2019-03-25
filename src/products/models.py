@@ -83,6 +83,11 @@ class Product(models.Model):
 	def __unicode__(self):  #similarly
 		return self.title
 
+	@property
+	def name(self):
+		'''name and titile are now used interchangerbly.'''
+		return self.title
+	
 
 def product_pre_save_reciever(sender, instance, *args, **kwargs):
 	if not instance.slug:
