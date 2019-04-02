@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect
 
 
 # relative import
-from .forms import ContactForm, LoginForm, RegisterForm
+from .forms import ContactForm  #, LoginForm, RegisterForm
 
 # Create your views here. Views are created by functions or classes written in python
 
