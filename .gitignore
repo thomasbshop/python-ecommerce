@@ -63,4 +63,4 @@ venv.bak/
 /site
 .mypy_cache/
 .idea
-db.sqlite3
+src/db.sqlite3

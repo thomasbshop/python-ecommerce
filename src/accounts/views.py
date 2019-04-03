@@ -28,7 +28,7 @@ def login_page(request):
 			print(request.user.is_authenticated())
 			login(request, user)
 			# Redirect to a success page.
-			# context["form"] = LoginForm()
+			# context["form"] = LoginForm() - to check if safe
 			if is_safe_url(redirect_path, request.get_host()):
 				return redirect(redirect_path)
 			else:
