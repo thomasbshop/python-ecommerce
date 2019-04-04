@@ -2,6 +2,7 @@ import math
 from django.db import models
 from django.db.models.signals import pre_save, post_save
 
+from billing.models import BillingProfile
 from carts.models import Cart
 from ecommerce.utils import unique_order_id_generator
 
@@ -14,8 +15,8 @@ ORDER_STATUS_CHOICES = (
 
 class Order(models.Model):
 	"""docstring for Order"""
+	billing_profile = models.ForeignKey(BillingProfile, null=True, blank=True)
 	order_id = models.CharField(max_length=120, blank=True)
-	# billing_profile
 	# shipping_address
 	# billing_address
 	cart 			= models.ForeignKey(Cart)
